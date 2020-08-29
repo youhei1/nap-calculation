@@ -1,0 +1,268 @@
+@charset "utf-8";
+
+@mixin opacity {
+	transition: all .5s ease-out;
+	&:hover {
+		opacity: .7;
+	}
+}
+
+body {
+	font-family: 'Kosugi Maru', sans-serif;
+	font-size: 16px;
+	background-color: #ebf5ff;
+	color: #333;
+	line-height: 2;
+	letter-spacing: .1em;
+}
+
+img,
+iframe,
+video {
+	display: block;
+	max-width: 100%;
+}
+
+.container {
+	padding: 0 20px;
+}
+
+.mainContent {
+	padding-top: 25px;
+	h2 {
+		font-weight: bold;
+		font-size: 24px;
+		text-align: center;
+		line-height: 1.5;
+		margin-bottom: .5em;
+	}
+	p {
+		margin: 1em 0;
+	}
+}
+
+.contentSection {
+	margin-bottom: 60px;
+}
+
+.noticeBox {
+	background-color: #ffffe0;
+	border-radius: 10px;
+	// text-align: center;
+	padding: 1em 2em;
+	margin: 0 0 1em;
+	.noticeBox_date {
+		font-size: 12px;
+		line-height: 1.5;
+		color: #aaa;
+	}
+	.noticeBox_text {
+		font-size: 16px;
+	}
+}
+
+.loading {
+	position: fixed;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(#000, .7);
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	@keyframes loading_fukidashi {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	.loading_icon {
+		width: 280px;
+		height: 150px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+	}
+	.loading_hitsuji {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+	.loading_fukidashi {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		animation-name: loading_fukidashi;
+		animation-iteration-count: infinite;
+		animation-duration: 1s;
+		animation-timing-function: ease-in-out;
+		animation-direction: alternate-reverse;
+	}
+}
+.header {
+	background-color: #003366;
+	height: 50px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+	.header_logo {
+		width: 220px;
+		display: block;
+	}
+}
+
+.main {
+	padding-top: 50px;
+}
+
+.fieldBtnArea {
+	text-align: center;
+}
+
+.btn {
+	@include opacity;
+	background-color: #e9967a;
+	color: #fff;
+	text-align: center;
+	display: inline-block;
+	min-width: 200px;
+	margin: auto;
+	border-radius: 5px;
+	padding: 10px 20px;
+	line-height: 1.5;
+	vertical-align: middle;
+	&.btn-calc {
+		&::after {
+			content: "";
+			display: inline-block;
+			background-image: url('../img/icon/calcIcon.png');
+			background-size: contain;
+			width: 12px;
+			height: 15px;
+			vertical-align: middle;
+			position: relative;
+			top: -2px;
+			margin-left: .2em;
+		}
+	}
+}
+
+.fieldArea {
+
+}
+
+.fieldArea {
+	margin-bottom: 40px;
+}
+
+.fieldList {
+	> li {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+}
+
+.field {
+
+	%input {
+		display: block;
+		background-color: #fff;
+		width: 100%;
+		max-width: 100%;
+		padding: .7em 1em;
+		font-family: inherit;
+		line-height: 1.5;
+	}
+
+	select {
+		@extend %input;
+		border-radius: 5px;
+		padding-right: 30px;
+	}
+	input[type=password] {
+
+	}
+
+	.field_label {
+		font-weight: bold;
+	}
+	.field_select {
+		position: relative;
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			right: 8px;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			background-size: contain;
+			background-image: url('../img/icon/selectArrow.png');
+			width: 20px;
+			height: 14px;
+		}
+	}
+	.field_column2 {
+		margin: -10px;
+		display: flex;
+		justify-content: space-between;
+		> li {
+			width: 50%;
+			padding: 10px;
+		}
+	}
+}
+
+.resultArea {
+
+}
+.resultTable {
+	width: 100%;
+	line-height: 1.5;
+	tbody {
+		tr {
+			&:nth-child(odd) {
+				background-color: #eee;
+			}
+			&:nth-child(even) {
+				background-color: #fff;
+			}
+		}
+	}
+	th {
+		font-weight: normal;
+		text-align: left;
+		padding: .7em 1em;
+	}
+	td {
+		text-align: right;
+		padding: .7em 1em;
+	}
+}
+.footer {
+	background-color: #003366;
+	color: #fff;
+	padding: 1em 0;
+	.footer_1 {
+		margin-bottom: .5em;
+	}
+	.footer_2 {
+	
+	}
+	.footer_copy {
+		font-size: 12px;
+		text-align: center;
+	}
+}
